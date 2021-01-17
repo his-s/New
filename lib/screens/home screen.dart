@@ -1,4 +1,5 @@
 
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -51,23 +52,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.all(10.0),
                   child: Column(
                     children: [
+Container(
+                      width: deviceInfo.screenWidth,
+                      height: deviceInfo.screenHeight / 3,
+                      decoration: BoxDecoration(
+                        
 
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
-                        width: double.infinity,
-                        // height: deviceInfo.orientation==Orientation.landscape?deviceInfo.screenWidth/6:deviceInfo.screenHeight/3,
-                        height: deviceInfo.screenHeight/3,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.green,
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(
-                              cardData[0].image,
-                            ),
-                          ),
-                        ),
                       ),
+                      child: Carousel(
+                        borderRadius: true,
+                        dotSize: 5,
+                        indicatorBgPadding: 10,
+                        dotBgColor: Colors.transparent,
+
+                        boxFit: BoxFit.cover,
+                        images: [
+                          AssetImage('assets/images/1.png'),
+                          AssetImage('assets/images/2.png'),
+                          AssetImage('assets/images/5.png'),
+                        ],
+                      ),
+                    ),
                       Expanded(
                         flex: 1,
                         child: ListView.builder(
